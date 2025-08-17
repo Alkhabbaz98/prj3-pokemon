@@ -3,32 +3,32 @@ const { model, Schema } = require("mongoose")
 const statsSchema = new Schema({
     hp: {
         type: Number,
-        required: true
+        // required: true
     },
 
     attack: {
         type: Number,
-        required: true
+        // required: true
     },
 
     defense: {
         type: Number,
-        required: true
+        // required: true
     },
 
     special_attack: {
         type: Number,
-        required: true
+        // required: true
     },
 
     special_defense: {
         type: Number,
-        required: true
+        // required: true
     },
 
     speed: {
         type: Number,
-        required: true
+        // required: true
     },
 
 })
@@ -37,37 +37,37 @@ const statsSchema = new Schema({
 const movesetSchema = new Schema({
     level: {
         type: Number,
-        required: true
+        // required: true
     },
 
     name: {
         type: String,
-        required: true
+        // required: true
     },
 
     type: {
         type: String,
-        required: true
+        // required: true
     },
 
     category: {
         type: String,
-        required: true
+        // required: true
     },
 
     power: {
         type: String,
-        required: true
+        // required: true
     },
 
     accuracy: {
         type: String,
-        required: true
+        // required: true
     },
 
     method: {
         type: String,
-        required: true
+        // required: true
     }
 
 })
@@ -75,24 +75,24 @@ const movesetSchema = new Schema({
 const pokemonSchema = new Schema({
     pokedex_id: {
         type: String,
-        required: true,
+        // required: true,
     },
     name: {
         type: String,
-        required: true,
+        // required: true,
 
     },
     type: {
         type: String,
-        required: true,
+        // required: true,
     },
     height: {
         type: Number,
-        required: true,
+        // required: true,
     },
     weight: {
         type: Number,
-        required: true,
+        // required: true,
     },
     ability: {
         type: String,

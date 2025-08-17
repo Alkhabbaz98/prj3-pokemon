@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const pokemonController = require('../controllers/pokemons')
+const pokemonController = require('../../controllers/pokemonController')
 
 router.post('/new', pokemonController.createPokemon)
 router.get('/', pokemonController.pokemonIndex)
