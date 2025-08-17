@@ -1,22 +1,22 @@
-const Pokemon = require('../models/Pokemon/Pokemon')
+const moveset = require('../models/Pokemon/Pokemon')
 
-async function createMoveset(req, res){
+async function createPokemon(req, res){
     console.log('You are in the create Pokemon controller')
     try {
         console.log('Req.body is: ', req.body)
-        const createdMoveset = await Pokemon.create(req.body)
-        res.status(201).json(createdMoveset)
+        const createdPokemon = await Pokemon.create(req.body)
+        res.status(201).json(createdPokemon)
     } catch (err) {
         console.log(err)
         res.status(500).json({error: err.message})
     }
 }
 
-async function movesetIndex(req, res){
+async function pokemonIndex(req, res){
     try {
-        const allMovesets = await Pokemon.find()
-        if (allMovesets.length){
-            res.status(200).json(allMovesets)
+        const allPokemons = await Pokemon.find()
+        if (allTracks.length){
+            res.status(200).json(allPokemons)
         } else {
             res.sendStatus(204)
         }
@@ -26,11 +26,11 @@ async function movesetIndex(req, res){
     }
 }
 
-async function showMoveset(req, res){
+async function showPokemon(req, res){
     try {
-        const moveset = await Pokemon.findById(req.params.id)
-        if (moveset){
-            res.status(200).json(moveset)
+        const pokemon = await Pokemon.findById(req.params.id)
+        if (track){
+            res.status(200).json(pokemon)
         } else {
             res.sendStatus(404)
         }
@@ -40,11 +40,11 @@ async function showMoveset(req, res){
     }
 }
 
-async function deleteMoveset(req, res){
+async function deletePokemon(req, res){
     try {
-        const moveset = await Pokemon.findByIdAndDelete(req.params.id)
-        if (moveset){
-            res.status(200).json(moveset)
+        const pokemon = await Pokemon.findByIdAndDelete(req.params.id)
+        if (pokemon){
+            res.status(200).json(pokemon)
         } else {
             res.sendStatus(404)
         }
@@ -55,23 +55,23 @@ async function deleteMoveset(req, res){
     }
 }
 
-async function updateMoveset(req, res){
+async function updatePokemon(req, res){
     try {
-        const moveset = await Pokemon.findByIdAndUpdate(
+        const pokemon = await Pokemon.findByIdAndUpdate(
             req.params.id,
             req.body,
             {new: true}
         )
-        res.status(200).json(moveset)
+        res.status(200).json(pokemon)
     } catch (err){
         res.status(500).json({error: err.message})
     }
 }
 
 module.exports = {
-    createMoveset,
-    movesetIndex,
-    showMoveset,
-    deleteMoveset,
-    updateMoveset
+    createPokemon,
+    pokemonIndex,
+    showPokemon,
+    deletePokemon,
+    updatePokemon
 }
