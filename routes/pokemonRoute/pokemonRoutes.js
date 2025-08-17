@@ -7,4 +7,7 @@ router.get('/', pokemonController.pokemonIndex)
 router.get('/:id', pokemonController.showPokemon)
 router.put('/:id', pokemonController.updatePokemon)
 router.delete('/:id', pokemonController.deletePokemon)
+router.post('/:id/moveset/new', pokemonController.createMoveset)
+router.put('/:id/moveset/:movesetId', pokemonController.updateMoveset)
+router.delete('/:id/moveset/:movesetId', pokemonController.deleteMoveset)
 module.exports = router
