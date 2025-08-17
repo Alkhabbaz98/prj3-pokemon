@@ -122,8 +122,63 @@ async function updateMoveset(req, res){
     }
 }
 
-    
-    
+
+// ======================================
+
+async function createStats(req, res){
+    console.log('You are in the create Moveset controller')
+    try {
+        const pokemon = await Pokemon.findById(req.params.id)
+        console.log('Req.body is: ', req.body)
+        pokemon.stats.push(req.body)
+        await pokemon.save()
+        const createdStats = pokemon.stats[pokemon.stats.lenght-1]
+        res.status(201).json(createdStats)
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({error: err.message})
+    }
+}
+
+
+
+async function deleteStats(req, res){
+    try {
+        const pokemon = await Pokemon.findById(req.params.id)
+        pokemon.stats.remove({_id: req.params.statsId})
+        await pokemon.save()
+        res.status(200).json({message: "Stats Deleted"})
+
+    } catch (err){
+        res.status(500).json({error: err.message})
+    }
+}
+
+async function updateStats(req, res){
+   
+    try {
+        const pokemon = await Pokemon.findById(req.params.id)
+        console.log('Req.body is: ', req.body)
+        const stats = pokemon.stats.id(req.params.statsId)
+        stats.hp = req.body.hp
+        stats.attack = req.body.attack
+        stats.defense = req.body.type
+        stats.special_attack=  req.body.special_attack
+        stats.special_defense = req.body.special_defense
+        stats.speed = req.body.speed
+
+        await pokemon.save()
+        res.status(200).json({message: "Updated"})
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({error: err.message})
+    }
+}
+
+
+
+
+
     
     
     module.exports = {
@@ -132,7 +187,12 @@ async function updateMoveset(req, res){
     showPokemon,
     deletePokemon,
     updatePokemon,
+
     createMoveset,
     deleteMoveset,
-    updateMoveset
+    updateMoveset,
+
+    createStats,
+    deleteStats,
+    updateStats
 }
