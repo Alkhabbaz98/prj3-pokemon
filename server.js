@@ -2,10 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const cors = require("cors")
 dotenv.config();
 const app = express();
 
 const pokemonRoutes = require('./routes/pokemonRoute/pokemonRoutes')
+const authRoutes = require('./routes/user/userRoutes')
 
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
@@ -15,6 +17,9 @@ mongoose.connection.on("connected", () => {
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/pokewiki", pokemonRoutes);
+app.use('/user', authRoutes);
+app.use(cors())
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
