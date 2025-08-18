@@ -102,10 +102,9 @@ const pokemonSchema = new Schema({
 
     moveset: [movesetSchema],
 
-
-
 })
 
 const Pokemon = model("Pokemon", pokemonSchema)
 
 module.exports = Pokemon
+
