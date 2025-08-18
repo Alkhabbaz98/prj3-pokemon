@@ -13,12 +13,12 @@ mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
   console.log("connected to database");
 });
+app.use(cors())
 
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/pokewiki", pokemonRoutes);
 app.use('/user', authRoutes);
-app.use(cors())
 
 
 const port = process.env.PORT || 3000;
