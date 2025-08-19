@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const pokemonTeamController = require('../../controllers/pokemonTeamController')
 const secureRoute = require("../../middleware/secureRoute")
+
 router.post('/new',secureRoute, pokemonTeamController.createPokeTeam)
 router.get('/', pokemonTeamController.pokeTeamIndex)
 router.get('/:id', pokemonTeamController.showPokeTeam)

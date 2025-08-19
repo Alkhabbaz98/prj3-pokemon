@@ -34,7 +34,7 @@ const teamSchema = new Schema({
 
 })
 
-const PokeTeam = model("Pokemon", teamSchema)
+const PokeTeam = model("PokeTeam", teamSchema)
 
 module.exports = PokeTeam
 
