@@ -13,8 +13,8 @@ mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
   console.log("connected to database");
 });
-app.use(cors())
 
+app.use(cors())
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/pokewiki", pokemonRoutes);
@@ -25,3 +25,4 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log("app is listing");
 });
+
