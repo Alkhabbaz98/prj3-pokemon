@@ -9,12 +9,4 @@ router.get("/:id", secureRoute, pokemonTeamController.showPokeTeam);
 router.put("/:id", secureRoute, pokemonTeamController.updatePokeTeam);
 router.delete("/:id", secureRoute, pokemonTeamController.deletePokeTeam);
 
-// router.post('/:id/moveset/new', pokemonController.createMoveset)
-// router.put('/:id/moveset/:movesetId', pokemonController.updateMoveset)
-// router.delete('/:id/moveset/:movesetId', pokemonController.deleteMoveset)
-
-// router.post('/:id/stats/new', pokemonController.createStats)
-// router.put('/:id/stats/:statsId', pokemonController.updateStats)
-// router.delete('/:id/stats/:statsId', pokemonController.deleteStats)
-
 module.exports = router;
