@@ -17,7 +17,7 @@ mongoose.connection.on("connected", () => {
 app.use(cors())
 app.use(express.json());
 app.use(morgan("dev"));
-app.use("/pokewiki", pokemonRoutes);
+app.use("/pokewiki/poketeam", pokemonRoutes);
 app.use('/user', authRoutes);
 
 
